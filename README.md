@@ -9,9 +9,10 @@
 
 ### e2e (end to end - teste de ponta a ponta)
   - imitar o comportamento do usuário final
+  - faz os testes de todo o sistema
   - complexos de escrever
   - demoram um tempo para rodar por conta interações 
-  - geralmente cobrem apenas os fluxos principais da aplicação
+  - testa o sistema em um ambiente real
 
 ### integration
   - verifica se um conjunto de unidades se comporta da maneira correta
@@ -19,15 +20,18 @@
   - testam unidade funcionando em conjunto
   - testam funcionalidade e não o sistama como um todo
   - mais complicado (de fazer e manter) e demorados que os testes de unidade
-  - bem mais simples (de fazer e mante) e rapidos que os testes de ponta a ponta
+  - bem mais simples (de fazer e manter) e rapidos que os testes de ponta a ponta
   - mais lentos que os testes de unidades, pois eles testam funcionalidade inteiras
   - São passiveis de "Flaky Test" (teste com falso negativo no caso de automação)
+  - Geralmente esses testes são feito em requisições HTTP (igual os testes de backend)
+  - também usam dublês para dependencias externas (mocks)
 
 ### unit (teste de unidade)
   - verificar o funcionamento da menor unidade de código testável da nossa aplicação
   - são independentes de colaboradores externos (mock)
   - pode guiar o design do seu código
   - rodam muito rapido e são simples (de fazer e manter)
+  - pode ser uma classe ou função
 
 ### teste usabilidade
   - avalia a qualidade do software no quesito experiência do usuário
@@ -38,29 +42,34 @@
   - atestar se a aplicação é capaz de desempenhar as funções que se propõe a fazer
   - pode ser tanto manualmente quanto automaticamente
   - caixa-braca:
+    - quem testa conhece o código
     - foco na análise do comportamento interno do software
     - analisa qual caminho ocorre o fluxo de dados
     - é possivel verificar se há a passagem correta em todas as condições esperadas
+    - precisamos tomar cuidado para não criar testes enviesados
   - caixa-preta: 
     - feito em cima das funções que devem ser empenhadas pelo programa
     - a pessoa não tem acesso ao código fonte e nem a sua estrutura
 
-### teste de performance
+### teste de performance (teste não funcional)
   - uma série de análises voltadas para o desempenho do software mediante várias situações
   - testa se os comando dados respondem rapidamente
   - testa se os componente não demorar muito a carregar
   - testa se a experiencia do usuário é satisfatória no produto testado
 
-### teste de carga e estresse
-  - consite em simular eventosde carga excessiva, forçando o software ao extremo
+### teste de carga (teste não funcional)
+  - simula várias pessoas usuárias acessando seu sistema em simultâneo para ver como ele se comporta
+### teste de estresse (teste não funcional)
+  - coloca o sistema em situações extremas de acessos e tráfego de dados para saber como ela vai se comportar e quais pontos de falhas podem acontecer
 
 ### teste de estabilidade
   - testa se o software não perde performance depois de determinado tempo de uso
 
 ### teste de regressão
-  - para evitrar a recorrência de um erro
+  - para evitar a recorrência de um erro
+  - testa se uma nova feature não quebra o sistema
 
-### teste de segurança
+### teste de segurança (teste não funcional)
   - testa se o produto final só é entregue ao cliente quando os requisito de segurança são devidamente preenchidos
   - verifica a segurança do software no que diz respeito à proteção de ataques e virus
 
@@ -89,6 +98,10 @@
 
 ### teste de sanidade (smoke test)
   - Serve para dizer somente se sua aplicação está respondendo corretamente ou não
+  - testa se as principais funcionalidades estão funcionando
+
+### teste de mesa
+  - teste feito na mão (papel e caneta)
 
 ## Beneficios de escrever testes
   - Evitar o trabalho repetitivo
